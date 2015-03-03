@@ -5,7 +5,15 @@ class Api::ShopsController < ApplicationController
   end
 
   def show
-    render json: Shop.find_by(token: params[:id]).comments
+    render json: Shop.find(params[:id]).comments
+  end
+
+  def create
+    render json: {"test" => "hello"}
+  end
+
+  def update
+    render json: {"test" => "hello"}
   end
 
 end
