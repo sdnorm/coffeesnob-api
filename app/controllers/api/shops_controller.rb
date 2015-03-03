@@ -12,11 +12,18 @@ class Api::ShopsController < ApplicationController
   end
 
   def create
-    render json: {"test" => "hello"}
+    name = params[:name]
+    @shop = Shop.new
+    @shop.name = name
+    @shop.save
+    render json: @shop
   end
 
   def update
-    render json: {"test" => "hello"}
+    @shop = Shop.find(params[:id])
+    @shop.update params.require(:shop).permit(:name)
+    @shop.save
+    render json: { status: :ok }
   end
 
 end
