@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   namespace :api do
-    resources :shops
+    resources :shops, 
     post "shops/:id/comments" => "comments#create", as: :comments
   end
   # The priority is based upon order of creation: first created -> highest priority.

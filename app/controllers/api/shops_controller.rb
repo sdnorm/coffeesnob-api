@@ -6,6 +6,7 @@ class Api::ShopsController < ApplicationController
 
   def show
     render json: Shop.find(params[:id]).comments
+    @comment = Comment.new
   end
 
   def create
