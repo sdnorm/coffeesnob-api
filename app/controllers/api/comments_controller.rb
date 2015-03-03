@@ -1,10 +1,10 @@
 class Api::CommentsController < ApplicationController
 
   def create
-    @shop = Shop.find(params[:id])
+    render json: Shop.find(params[:id])
 
-    @comment = Comment.new params.require(:comment).permit(:message)
-    @comment.shop = @shop
+    render json: Comment.new params.require(:comment).permit(:message)
+    render json:  @comment.shop
 
 
 end
