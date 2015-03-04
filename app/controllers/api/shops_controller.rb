@@ -7,7 +7,7 @@ class Api::ShopsController < ApplicationController
   end
 
   def show
-    render json: Shop.find(params[:id]).comments
+    render json: Shop.find(params[:id])
     @comment = Comment.new
   end
 

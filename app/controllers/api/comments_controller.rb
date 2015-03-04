@@ -6,5 +6,9 @@ class Api::CommentsController < ApplicationController
     render json: @comment.shop
   end
 
+  def show
+    render json: Shop.find(params[:id]).comments
+  end
+
 
 end
