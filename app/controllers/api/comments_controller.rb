@@ -11,6 +11,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
+    puts params
     @shop = Shop.find(params[:id])
     @comment = Comment.new params.permit(:message)
     @comment.shop = @shop
