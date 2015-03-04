@@ -1,6 +1,6 @@
 class Api::CommentsController < ApplicationController
 
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
 
   def index
     render json: Comment.all
@@ -11,7 +11,6 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    # puts params
     @shop = Shop.find(params[:shop_id])
     @comment = Comment.new params.permit(:message)
     @comment.shop = @shop
