@@ -15,7 +15,14 @@ class Api::CommentsController < ApplicationController
       @comment = Comment.new(params.require(:comment).permit(:message))
       @comment.save
     end
-      render json: {status: :ok}
+    render json: {status: :ok}
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    @comment.update params.require(:comment).permit(:message)
+    @comment.save
+    render json: { status: :ok }
   end
 
 
