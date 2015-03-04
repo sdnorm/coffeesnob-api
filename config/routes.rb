@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
 
   namespace :api do
-    resources :shops
-    get "/shops/:id/comments" => "comments#show", as: :all_comments
-    post "/shops/:id/comments" => "comments#create", as: :comments
+    resources :shops do
+      resources :comments
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
