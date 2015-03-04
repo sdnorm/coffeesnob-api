@@ -1,14 +1,25 @@
 class Api::CommentsController < ApplicationController
 
-  def create
-    render json: Shop.find(params[:id])
-    render json: Comment.new(params.require(:comment).permit(:message))
-    render json: @comment.shop
+
+  def index
+    render json: Comment.all
   end
 
   def show
     render json: Shop.find(params[:id]).comments
   end
+
+  def create
+    @shop = Shop.find(params[:id])
+    if @shop.id > 0
+      @comment = Comment.new(params.require(:comment).permit(:message))
+      @comment.save
+    end
+      render json: {status: :ok}
+  end
+
+
+
 
 
 end
