@@ -11,7 +11,7 @@ class Api::ShopsController < ApplicationController
   end
 
   def create
-    name = params[:name]
+    name = params[:name, :address, :city, :state, :zip, :photo, :website, :rating, :description, :hours]
     @shop = Shop.new
     @shop.name = name
     @shop.save
@@ -20,7 +20,7 @@ class Api::ShopsController < ApplicationController
 
   def update
     @shop = Shop.find(params[:id])
-    @shop.update params.require(:shop).permit(:name)
+    @shop.update params.require(:shop).permit(:name, :address, :city, :state, :zip, :photo, :website, :rating, :description, :hours)
     @shop.save
     render json: { status: :ok }
   end
