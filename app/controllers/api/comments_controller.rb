@@ -1,9 +1,9 @@
 class Api::CommentsController < ApplicationController
 
-  
+
 
   def index
-    render json: Comment.all
+    render json: Shop.find(params[:shop_id]).comments
   end
 
   def show
