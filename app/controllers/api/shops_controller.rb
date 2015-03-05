@@ -1,6 +1,6 @@
 class Api::ShopsController < ApplicationController
 
-  
+
 
   def index
     render json: Shop.all
@@ -11,7 +11,7 @@ class Api::ShopsController < ApplicationController
   end
 
   def create
-    name = params[:name, :address, :city, :state, :zip, :photo, :website, :rating, :description, :hours]
+    name = params[:name, :address, :city, :state, :zip, :photo, :website, :rating, :description, :hours, :phone]
     @shop = Shop.new
     @shop.name = name
     @shop.save
