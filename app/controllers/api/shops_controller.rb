@@ -20,7 +20,7 @@ class Api::ShopsController < ApplicationController
 
   def update
     @shop = Shop.find(params[:id])
-    @shop.update params.require(:shop).permit(:name, :address, :city, :state, :zip, :photo, :website, :rating, :description, :hours)
+    @shop.update params.require(:shop).permit(:name, :address, :city, :state, :zip, :photo, :website, :rating, :description, :hours, :phone)
     @shop.save
     render json: { status: :ok }
   end
