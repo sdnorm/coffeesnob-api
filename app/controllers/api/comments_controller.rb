@@ -12,8 +12,8 @@ class Api::CommentsController < ApplicationController
 
   def create
     @shop = Shop.find(params[:shop_id])
-    @comment = Comment.new params.permit(:message)
-    @comment.shop = @shop
+    @comment = @shop.comments.build
+    @comment.message = params[:message]
     @comment.save
     render json: { status: :ok }
   end
