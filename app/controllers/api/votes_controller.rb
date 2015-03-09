@@ -13,7 +13,7 @@ class Api::VotesController < ApplicationController
   def create
     @shop = Shop.find(params[:shop_id])
     @vote = @shop.votes.build
-    @vote.ratings = params[:ratings]
+    @vote.rating = params[:rating]
     @vote.save
     render json: { status: :ok }
   end
